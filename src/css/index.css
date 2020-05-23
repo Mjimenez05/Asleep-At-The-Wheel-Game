@@ -12,7 +12,7 @@ body {
   user-select: none;
 }
 
-/* 水平垂直居中-公共类 */
+
 .c-wrap { display: table; *writing-mode: tb-rl; }
 .c-inner { display: table-cell; vertical-align: middle; *width:100%; *margin:auto 0; *writing-mode:lr-tb;}
 
