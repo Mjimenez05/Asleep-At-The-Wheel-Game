@@ -15,8 +15,8 @@ export default {
     },
     bird: {
         size: {
-            width: 34,
-            height: 24,
+            width: 68,
+            height: 32,
         },
         status: 'normal',
         height: 188,
@@ -24,26 +24,26 @@ export default {
         originalHeight: 188,
         flyHeight: 60,
         flyTime: 140,
-        dropTime: 6000,
+        dropTime: 1800,
         timestamp: 0,
     },
     pipings: {
         timestamp: 0,
         interval: 1600,
-        speed: 2800,
+        speed: 2000,
         size: {
             width: 52,
         },
         range: {
-            y: {
+            x: {
                 min: 0,
                 max: 340,
             },
-            x: {
+            y: {
                 min: 40,
                 max: 242,
             },
-            gap: 300,
+            gap: 130,
         },
         list: [],
     },

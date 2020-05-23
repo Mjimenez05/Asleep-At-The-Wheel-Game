@@ -21,6 +21,7 @@ body {
 	width: 288px;
 	height: 512px;
 	margin: 0 auto;
+	
 }
 
 .scene {
@@ -38,15 +39,15 @@ body {
 	position: absolute;
 	bottom: 112px;
 	left: 50%;
-	width: 34px;
-	height: 24px;
+	width: 68px;
+	height: 68px;
 	margin-left:  -12px;
-	background: url(../images/elements.png) no-repeat -446px -248px;
+	background: url(../images/delorian-sprite.png) no-repeat;
 	transition: transform 0.1s ease;
 	will-change:  transform;
 }
 
-.flying {
+/* .flying {
 	animation: fly .4s steps(1) reverse infinite;
 }
 
@@ -60,7 +61,7 @@ body {
 	66% {
 		background-position: -446px -248px;
 	}
-}
+} */
 
 .piping {
 	position: absolute;
@@ -68,6 +69,7 @@ body {
 	right: -52px;
 	width: 52px;
 	height: 100%;
+	z-index: 0;
 }
 
 .piping-upper {
@@ -101,7 +103,6 @@ body {
 
 .sliding {
 	animation: sliding 0.2s linear infinite;
-	
 }
 
 @keyframes sliding {
@@ -147,4 +148,3 @@ body {
 	font-size: 14px;
 	z-index: 10;
 }
-

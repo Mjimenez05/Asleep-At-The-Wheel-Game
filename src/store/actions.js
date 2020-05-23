@@ -1,7 +1,3 @@
-/**
- * actions
- */
-
 export let START_PLAY = (state) => {
     let game = {...state.game }
     game.status = 'playing'
