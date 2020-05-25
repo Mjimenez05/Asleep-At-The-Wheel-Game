@@ -5,16 +5,28 @@ html, body {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background: #eaeaea;
-  user-select: none;
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -256px;
+    margin-left: -144px;
+    background-color: teal;
+    width: 288px;
+    height: 512px;
+  	user-select: none;
+  	border-radius: 40px;
+  	box-shadow: 0px 15px 30px 10px rgba(0, 0, 0, 0.397);
 }
 
 
-.c-wrap { display: table; *writing-mode: tb-rl; }
-.c-inner { display: table-cell; vertical-align: middle; *width:100%; *margin:auto 0; *writing-mode:lr-tb;}
+.c-wrap {
+	display: table; 
+	*writing-mode: tb-rl; 
+}
+.c-inner { 
+	display: table-cell; 
+	vertical-align: middle; 
+	}
 
 .game {
 	position: relative;

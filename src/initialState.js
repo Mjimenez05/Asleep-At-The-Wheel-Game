@@ -15,7 +15,7 @@ export default {
     },
     bird: {
         size: {
-            width: 68,
+            width: 32,
             height: 32,
         },
         status: 'normal',
