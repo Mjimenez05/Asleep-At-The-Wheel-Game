@@ -18,22 +18,38 @@ export default function App({ state, actions, record }) {
   })
   return (
 
-
-    <div className="game">
-      <div className="scene" onMouseDown={onFlyUp} onTouchStart={onFlyUp}>
-        {
-          pipings.list.map(piping => <Piping key={piping.timestamp} {...piping} />)
-        }
-        {isPlaying &&
-          <div className="score">{player.score}</div>
-        }
-        <Bird {...bird} isFlying={isPlaying} />
-        <div className={landClasses} />
-        {game.status === 'over' &&
-          <Menu score={player.score} onPlay={START_PLAY} onReplay={onReplay} onReverse={record.reverse} />
-        }
+    <div>
+      <div className="highScores text-light text-center">
+        <h6>HIGH SCORES</h6>
+        <ul className="list-group">
+          <li className="list-group-item">ass</li>
+          <li className="list-group-item">hey</li>
+          <li className="list-group-item">vpd</li>
+          <li className="list-group-item">vpd</li>
+          <li className="list-group-item">vpd</li>
+          <li className="list-group-item">vpd</li>
+          <li className="list-group-item">vpd</li>
+          <li className="list-group-item">vpd</li>
+          <li className="list-group-item">vpd</li>
+          <li className="list-group-item">vpd</li>
+        </ul>
       </div>
-      
+      <div className="game">
+        <div className="scene" onMouseDown={onFlyUp} onTouchStart={onFlyUp}>
+          {
+            pipings.list.map(piping => <Piping key={piping.timestamp} {...piping} />)
+          }
+          {isPlaying &&
+            <div className="score">{player.score}</div>
+          }
+          <Bird {...bird} isFlying={isPlaying} />
+          <div className={landClasses} />
+          {game.status === 'over' &&
+            <Menu score={player.score} onPlay={START_PLAY} onReplay={onReplay} onReverse={record.reverse} />
+          }
+        </div>
+      </div>
+
     </div>
 
   )
