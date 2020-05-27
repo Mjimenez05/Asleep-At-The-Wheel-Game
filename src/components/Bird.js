@@ -7,7 +7,7 @@ export default function Bird(props) {
     	transform: `translate(0, ${-height}px) rotate(${getRotate(status)}deg)`
     }
     let classes = classnames({
-    	'bird': true,
+    	'car': true,
     	'flying': isFlying,
     })
 	return (

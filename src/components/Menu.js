@@ -25,7 +25,7 @@ export default function Menu({ score, onPlay, onReplay, onReverse }) {
 			<ul className="c-inner">
 				<li>score: {score}</li>
 				<li>
-					<div className="btn" onMouseDown={onPlay} onTouchStart={onPlay}>play</div>
+					<div className="btn font-weight-bolder text-light" onMouseDown={onPlay} onTouchStart={onPlay}>play</div>
 				</li>
 				{/* { onReplay && 
 					<li>
@@ -34,12 +34,12 @@ export default function Menu({ score, onPlay, onReplay, onReverse }) {
 				} */}
 				{ onReplay && 
 					<li>
-						<div className="btn" onMouseDown={onReplay} onTouchStart={onReplay}>replay</div>
+						<div className="btn font-weight-bolder text-light" onMouseDown={onReplay} onTouchStart={onReplay}>replay</div>
 					</li>
 				}
 				{ onReplay && 
 					<li>
-						<div className="btn" onMouseDown={onReverse} onTouchStart={onReverse}>reverse</div>
+						<div className="btn font-weight-bolder text-light" onMouseDown={onReverse} onTouchStart={onReverse}>reverse</div>
 					</li>
 				}
 			</ul>

@@ -36,8 +36,8 @@ export default {
         },
         range: {
             x: {
-                min: 0,
-                max: 340,
+                min: -40,
+                max: 380,
             },
             y: {
                 min: 40,
