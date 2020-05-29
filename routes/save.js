@@ -6,7 +6,7 @@ const db = require("../models")
 module.exports = function (app){
 
     app.get('/saved', function (request, response) {
-        // response.send('The Holy Hand Grenade Of Antioch');
+        
         db.SaveScore
           .find({})
           .then(function (data) {
@@ -15,15 +15,17 @@ module.exports = function (app){
       });
 
       app.post("/saveScore", function (req, res){
-        // console.log(body);
         
-        // const {volumeInfo} = body
+        console.log(req);
+        
 
         db.SaveScore.create({
           initals: req.initals,
           score: req.score
           
         })
-        .then(response => {res.send(response)})
+        .then(response => {response.send("sent!");
+        })
+        
       })
 }

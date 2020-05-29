@@ -25,31 +25,26 @@ export default class Menu extends Component {
 		axios()
 	}
 
-	saveScore = (state) => {
-		console.log("save score", state);
-		
-		axios({
-		  method: "post",
-		  url: "/saveScore",
-		  data: state
-		  
-		})
-		  .then(
-			console.log
-		  )
-		  .catch(
-			console.log
-		  )
-	  }
+	saveScore = () => {
+
+
+		axios
+			.post(
+				"localhost:3001/saveScore",
+				this.state
+			)
+			.catch(
+				console.log
+			)
+	}
 
 	render() {
 		const { score, onPlay, onReplay, onReverse } = this.props
 		this.state.score = score
 		console.log(this.state);
-		console.log();
-		console.log(this.state);
 		
-		
+
+
 		return (
 			<div className="menu c-wrap">
 				<ul className="c-inner">
@@ -68,14 +63,14 @@ export default class Menu extends Component {
 									value={this.state.initals}
 									onChange={this.handleChange}
 								/>
-								
+
 								<div className="input-group-append">
 									<button
 										className="btn btn-outline-secondary"
 										type="submit"
 										id="save"
 										onClick={() => this.saveScore()}
-										>
+									>
 										<FontAwesomeIcon
 											className="text-light"
 											icon={faSave} />
