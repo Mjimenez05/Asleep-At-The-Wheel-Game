@@ -21,7 +21,7 @@ module.exports = function (app){
 
         db.SaveScore.create({
           initals: req.initals,
-          score:
+          score: req.score
           
         })
         .then(response => {res.send(response)})
