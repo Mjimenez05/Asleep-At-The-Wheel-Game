@@ -1,50 +1,50 @@
-export let START_PLAY = (state) => {
-    let game = {...state.game }
-    game.status = 'playing'
-    let nextState = {
-        ...state,
-        ...state.initialState,
-        game,
-    }
-    return FLY_UP(nextState)
-}
+// export let START_PLAY = (state) => {
+//     let game = {...state.game }
+//     game.status = 'playing'
+//     let nextState = {
+//         ...state,
+//         ...state.initialState,
+//         game,
+//     }
+//     return FLY_UP(nextState)
+// }
 
-export let FLY_UP = (state) => {
-    if (state.car.height >= state.game.range.max) {
-        return state
-    }
+// export let FLY_UP = (state) => {
+//     if (state.car.height >= state.game.range.max) {
+//         return state
+//     }
 
-    let car = {...state.car }
-    car.status = 'up'
-    car.originalHeight = car.height
-    car.targetHeight = car.height + car.flyHeight
-    car.timestamp = Date.now()
+//     let car = {...state.car }
+//     car.status = 'up'
+//     car.originalHeight = car.height
+//     car.targetHeight = car.height + car.flyHeight
+//     car.timestamp = Date.now()
 
-    let { range } = state.game
-    if (car.targetHeight > range.max) {
-        car.targetHeight = range.max
-    }
+//     let { range } = state.game
+//     if (car.targetHeight > range.max) {
+//         car.targetHeight = range.max
+//     }
 
-    return {
-        ...state,
-        car,
-    }
-}
+//     return {
+//         ...state,
+//         car,
+//     }
+// }
 
-export let PLAYING = (state) => {
-    let gameStatus = state.game.status
-    if (gameStatus === 'over') {
-        return state
-    }
-    let nextState = flying(state)
-    nextState = sliding(nextState)
-    nextState = collisitionDetection(nextState)
-    return nextState
-}
+// export let PLAYING = (state) => {
+//     let gameStatus = state.game.status
+//     if (gameStatus === 'over') {
+//         return state
+//     }
+//     let nextState = flying(state)
+//     nextState = sliding(nextState)
+//     nextState = collisitionDetection(nextState)
+//     return nextState
+// }
 
 
 function dropDown(state) {
-    let car = {...state.car }
+    let car = { ...state.car }
     car.status = 'down'
     car.originalHeight = car.height
     car.targetHeight = state.game.range.min
@@ -56,7 +56,7 @@ function dropDown(state) {
 }
 
 function flying(state) {
-    let car = {...state.car }
+    let car = { ...state.car }
     if (car.height === car.targetHeight) {
         return dropDown(state)
     }
@@ -83,7 +83,7 @@ function flying(state) {
 }
 
 function sliding(state) {
-    let pipings = {...state.pipings }
+    let pipings = { ...state.pipings }
     let now = Date.now()
     if (now - pipings.timestamp >= pipings.interval) {
         let { game } = state
@@ -103,10 +103,10 @@ function sliding(state) {
 
     let { car, game } = state
     let collisitionRange = getCollisitionRange(car.size.width, game.size.width, pipings.size.width)
-    let player = {...state.player}
+    let player = { ...state.player }
 
     pipings.list = pipings.list.map(piping => {
-        piping = {...piping }
+        piping = { ...piping }
         if (piping.x < pipings.range.x.max) {
             let ratio = (now - piping.timestamp) / pipings.speed
             if (ratio > 1) {
@@ -166,4 +166,55 @@ function collisitionDetection(state) {
         }
     }
     return state
+}
+var START_PLAY = (state) => {
+    let game = { ...state.game }
+    game.status = 'playing'
+    let nextState = {
+        ...state,
+        ...state.initialState,
+        game,
+    }
+    return FLY_UP(nextState)
+}
+
+var FLY_UP = (state) => {
+    if (state.car.height >= state.game.range.max) {
+        return state
+    }
+
+    let car = { ...state.car }
+    car.status = 'up'
+    car.originalHeight = car.height
+    car.targetHeight = car.height + car.flyHeight
+    car.timestamp = Date.now()
+
+    let { range } = state.game
+    if (car.targetHeight > range.max) {
+        car.targetHeight = range.max
+    }
+
+    return {
+        ...state,
+        car,
+    }
+}
+
+var PLAYING = (state) => {
+    let gameStatus = state.game.status
+    if (gameStatus === 'over') {
+        return state
+    }
+    let nextState = flying(state)
+    nextState = sliding(nextState)
+    nextState = collisitionDetection(nextState)
+    return nextState
+}
+export default {
+
+    START_PLAY,
+
+    FLY_UP,
+
+    PLAYING
 }
