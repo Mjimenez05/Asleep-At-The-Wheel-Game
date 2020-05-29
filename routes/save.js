@@ -14,13 +14,14 @@ module.exports = function (app){
           });
       });
 
-      app.post("/saveScore", function ({body}, res){
+      app.post("/saveScore", function (req, res){
         // console.log(body);
         
-        const {volumeInfo} = body
+        // const {volumeInfo} = body
 
         db.SaveScore.create({
-          name: volumeInfo.title,
+          initals: req.initals,
+          score:
           
         })
         .then(response => {res.send(response)})

@@ -13,7 +13,7 @@ body {
 .c-wrap {
 	display: table;
 	*writing-mode: tb-rl;
-	border-radius: 40px !important;
+	
 }
 
 .c-inner {
@@ -22,7 +22,7 @@ body {
 	*width: 100%;
 	*margin: auto 0;
 	*writing-mode: lr-tb;
-	border-radius: 40px !important;
+	
 }
 
 .game {
@@ -45,8 +45,12 @@ body {
 	color: #fff;
 	overflow: hidden;
 	background: url(../images/elements.png) no-repeat;
-	border-radius: 40px !important;
+	/* border-radius: 40px !important; */
 	box-shadow: 0px 0px 80px 5px rgb(0, 109, 128);
+	border-top-left-radius: 40px !important;
+	border-bottom-left-radius: 41px !important;
+	border-top-right-radius: 40px !important;
+	border-bottom-right-radius: 40px !important;
 }
 
 .car {

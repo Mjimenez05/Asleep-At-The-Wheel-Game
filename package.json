@@ -1,8 +1,8 @@
 {
-  "name": "flappy-bird",
+  "name": "asleep-at-the-wheel",
   "version": "1.0.0",
   "private": true,
-  "homepage": "/flappy-bird",
+  "homepage": "/asleep-at-the-wheel",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4",
@@ -17,8 +17,8 @@
     "express": "^4.17.1",
     "fastclick": "^1.0.6",
     "mongoose": "^5.9.15",
-    "react": "^15.2.1",
-    "react-dom": "^15.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "relite": "^1.0.0"
   },
   "scripts": {

@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
-export default function Bird(props) {
+export default function Car(props) {
 	let { status, height = 0, isFlying } = props
     let style = {
     	transform: `translate(0, ${-height}px) rotate(${getRotate(status)}deg)`

@@ -1,11 +1,11 @@
 import React from 'react'
 import classnames from 'classnames'
-import Bird from './components/Bird'
+import Car from './components/Car'
 import Piping from './components/Piping'
 import Menu from './components/Menu'
 
 export default function App({ state, actions, record }) {
-  let { bird, pipings, game, player } = state
+  let { car, pipings, game, player } = state
   let { FLY_UP, START_PLAY } = actions
   let recordState = record.getRecord()
   let { isRecording, history } = recordState
@@ -42,10 +42,10 @@ export default function App({ state, actions, record }) {
           {isPlaying &&
             <div className="score">{player.score}</div>
           }
-          <Bird {...bird} isFlying={isPlaying} />
+          <Car {...car} isFlying={isPlaying} />
           <div className={landClasses} />
           {game.status === 'over' &&
-            <Menu score={player.score} onPlay={START_PLAY} onReplay={onReplay} onReverse={record.reverse} />
+            <Menu  score={player.score} onPlay={START_PLAY} onReplay={onReplay} onReverse={record.reverse} />
           }
         </div>
       </div>

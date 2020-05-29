@@ -13,7 +13,7 @@ export default {
     player: {
         score: 0,
     },
-    bird: {
+    car: {
         size: {
             width: 32,
             height: 32,

@@ -10,24 +10,24 @@ export let START_PLAY = (state) => {
 }
 
 export let FLY_UP = (state) => {
-    if (state.bird.height >= state.game.range.max) {
+    if (state.car.height >= state.game.range.max) {
         return state
     }
 
-    let bird = {...state.bird }
-    bird.status = 'up'
-    bird.originalHeight = bird.height
-    bird.targetHeight = bird.height + bird.flyHeight
-    bird.timestamp = Date.now()
+    let car = {...state.car }
+    car.status = 'up'
+    car.originalHeight = car.height
+    car.targetHeight = car.height + car.flyHeight
+    car.timestamp = Date.now()
 
     let { range } = state.game
-    if (bird.targetHeight > range.max) {
-        bird.targetHeight = range.max
+    if (car.targetHeight > range.max) {
+        car.targetHeight = range.max
     }
 
     return {
         ...state,
-        bird,
+        car,
     }
 }
 
@@ -44,41 +44,41 @@ export let PLAYING = (state) => {
 
 
 function dropDown(state) {
-    let bird = {...state.bird }
-    bird.status = 'down'
-    bird.originalHeight = bird.height
-    bird.targetHeight = state.game.range.min
-    bird.timestamp = Date.now()
+    let car = {...state.car }
+    car.status = 'down'
+    car.originalHeight = car.height
+    car.targetHeight = state.game.range.min
+    car.timestamp = Date.now()
     return {
         ...state,
-        bird,
+        car,
     }
 }
 
 function flying(state) {
-    let bird = {...state.bird }
-    if (bird.height === bird.targetHeight) {
+    let car = {...state.car }
+    if (car.height === car.targetHeight) {
         return dropDown(state)
     }
 
-    let { timestamp, flyTime, dropTime } = bird
+    let { timestamp, flyTime, dropTime } = car
     let time = Date.now() - timestamp
 
-    if (bird.height < bird.targetHeight) {
+    if (car.height < car.targetHeight) {
         let ratio = time / flyTime
         if (ratio > 1) {
             ratio = 1
         }
-        bird.height = bird.originalHeight + (bird.targetHeight - bird.originalHeight) * ratio
+        car.height = car.originalHeight + (car.targetHeight - car.originalHeight) * ratio
     } else {
         let shift = time * (state.game.range.max - state.game.range.min) / dropTime
 
-        bird.height = bird.originalHeight - shift
+        car.height = car.originalHeight - shift
     }
 
     return {
         ...state,
-        bird,
+        car,
     }
 }
 
@@ -101,8 +101,8 @@ function sliding(state) {
         pipings.timestamp = now
     }
 
-    let { bird, game } = state
-    let collisitionRange = getCollisitionRange(bird.size.width, game.size.width, pipings.size.width)
+    let { car, game } = state
+    let collisitionRange = getCollisitionRange(car.size.width, game.size.width, pipings.size.width)
     let player = {...state.player}
 
     pipings.list = pipings.list.map(piping => {
@@ -134,27 +134,27 @@ function sliding(state) {
     }
 }
 
-function getCollisitionRange(birdWidth, gameWidth, pipingWidth) {
-    let from = (gameWidth - birdWidth) / 2
-    let to = from + birdWidth / 2 + pipingWidth
+function getCollisitionRange(carWidth, gameWidth, pipingWidth) {
+    let from = (gameWidth - carWidth) / 2
+    let to = from + carWidth / 2 + pipingWidth
     return { from, to }
 }
 
 function collisitionDetection(state) {
-    let { game, bird, pipings } = state
+    let { game, car, pipings } = state
 
-    let collisitionRange = getCollisitionRange(bird.size.width, game.size.width, pipings.size.width)
+    let collisitionRange = getCollisitionRange(car.size.width, game.size.width, pipings.size.width)
 
     let list = pipings.list.filter(piping => {
         return piping.x > collisitionRange.from && piping.x < collisitionRange.to
     })
 
-    let birdBottom = bird.height
-    let birdTop = bird.height + bird.size.height
+    let carBottom = car.height
+    let carTop = car.height + car.size.height
 
     for (let i = 0, len = list.length; i < len; i += 1) {
         let piping = list[i]
-        if (birdBottom < piping.bottom || birdTop > piping.top) {
+        if (carBottom < piping.bottom || carTop > piping.top) {
             game = {
                 ...game,
                 status: 'over'
