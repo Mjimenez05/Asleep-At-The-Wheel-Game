@@ -4,6 +4,7 @@ import Car from './components/Car'
 import Piping from './components/Piping'
 import Menu from './components/Menu'
 import Scores from "./components/Scores"
+import Instructions from "./components/Instructions"
 
 
 export default function App({ state, actions, record }) {
@@ -25,6 +26,7 @@ export default function App({ state, actions, record }) {
   return (
 
     <div>
+      <Instructions />
       <Scores reloadScores={reloadScores} updateReloadScores={updateReloadScores} />
       <div className="game">
         <div className="scene" onMouseDown={onFlyUp} onTouchStart={onFlyUp}>

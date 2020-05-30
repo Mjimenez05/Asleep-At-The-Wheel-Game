@@ -6,8 +6,10 @@ html {
 }
 
 body {
+	font-family: 'Press Start 2P', cursive;
 	position: fixed;
 	user-select: none;
+	background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .c-wrap {
@@ -257,31 +259,65 @@ body {
 	}
 }
 
-.input-group {
-	width: 150px;
-	margin: 0 auto;
-	/* line-height: 24px; */
-	background: #e801a3ce;
-	border: 2px solid #fff;
-	border-radius: 10px;
-}
+
 
 .highScores {
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	margin-top: -260px;
+	margin-top: -250px;
 	margin-left: 160px;
 	width: 100px;
 	height: 512px;
 	background: transparent !important;
 	z-index: 10000000000000;
 	opacity: .3;
+	font-size: 10px;
 	
 }
 
 .list-group-item {
 	background-color: transparent !important;
 	border: 2px solid #fff !important;
-	padding: .5rem 1rem
+	padding: .8rem;
+	color: rgb(255, 0, 255, 1);
+	opacity: none !important;
+}
+
+.titleImg {
+	background: url(../images/title.png);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -444px;
+	margin-left: -444px;
+	width: 888px;
+	height: 888px;
+	
+	animation: titleSpin 150s linear infinite;
+}
+@keyframes titleSpin{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+
+.instructions{
+	background: none;
+	transform: rotate(-90deg);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -444px;
+	margin-left: -185px;
+	width: 800px;
+	height: 888px;
+	opacity: .3;
+	
+}
+.fly{
+	font-size: 40px !important;
 }
