@@ -3,6 +3,8 @@ import axios from 'axios'
 import { save } from '../record'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from '@fortawesome/free-solid-svg-icons'
+import ReactHowler from 'react-howler'
+import Music from '../audio/audio.mp3'
 
 
 export default class Menu extends Component {
@@ -53,6 +55,7 @@ export default class Menu extends Component {
 
 		return (
 			<div className="menu c-wrap">
+				{/* <ReactHowler src={Music} playing={true} /> */}
 				<ul className="c-inner">
 					<li>score: {score}</li>
 					{onReplay &&

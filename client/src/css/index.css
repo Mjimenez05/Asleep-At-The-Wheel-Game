@@ -259,7 +259,13 @@ body {
 	}
 }
 
-
+.input-group {
+	width: 150px;
+	margin: 0 auto;
+	background: #e801a3ce;
+	border: 2px solid #fff;
+	border-radius: 10px;
+}
 
 .highScores {
 	position: fixed;

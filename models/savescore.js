@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const SaveScoreSchema = new Schema({
     initals: String,
-    score: String
+    score: Number
 });
 
 const SaveScore = mongoose.model('SaveScore', SaveScoreSchema);

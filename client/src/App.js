@@ -6,7 +6,6 @@ import Menu from './components/Menu'
 import Scores from "./components/Scores"
 import Instructions from "./components/Instructions"
 
-
 export default function App({ state, actions, record }) {
   let { car, pipings, game, player } = state
   let { FLY_UP, START_PLAY } = actions
