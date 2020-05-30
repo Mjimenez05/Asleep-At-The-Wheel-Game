@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const SaveScoreSchema = new Schema({
-    name: String,
+    initals: String,
     score: String
 });
 

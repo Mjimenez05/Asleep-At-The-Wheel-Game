@@ -1,5 +1,5 @@
 
-const axios = require("axios")
+// const axios = require("axios")
 const db = require("../models")
 
 
@@ -8,23 +8,24 @@ module.exports = function (app){
     app.get('/saved', function (request, response) {
         
         db.SaveScore
-          .find({})
+          .find()
+          .sort({score: -1})
+          .limit(10)
           .then(function (data) {
             response.json(data);
           });
       });
 
       app.post("/saveScore", function (req, res){
+        console.log(req.body);
         
-        console.log(req);
-        
-
         db.SaveScore.create({
-          initals: req.initals,
-          score: req.score
+          initals: req.body.initals,
+          score: req.body.score
           
         })
-        .then(response => {response.send("sent!");
+        .then(response => {console.log(response);
+          res.send("ok")
         })
         
       })

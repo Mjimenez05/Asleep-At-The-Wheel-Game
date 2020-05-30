@@ -7,6 +7,7 @@ import initialState from './initialState'
 import * as record from './record'
 import './css/index.css'
 
+
 let state = {
 	initialState: {...initialState},
 	...initialState,

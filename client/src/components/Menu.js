@@ -30,8 +30,15 @@ export default class Menu extends Component {
 
 		axios
 			.post(
-				"localhost:3001/saveScore",
+				"saveScore",
 				this.state
+			)
+			.then(
+				() => {
+					console.log(this.props);
+					
+					this.props.updateReloadScores(true)
+				}
 			)
 			.catch(
 				console.log
@@ -41,7 +48,6 @@ export default class Menu extends Component {
 	render() {
 		const { score, onPlay, onReplay, onReverse } = this.props
 		this.state.score = score
-		console.log(this.state);
 		
 
 

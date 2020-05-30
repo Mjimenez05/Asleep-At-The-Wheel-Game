@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classnames from 'classnames'
 import Car from './components/Car'
 import Piping from './components/Piping'
 import Menu from './components/Menu'
+import Scores from "./components/Scores"
+
 
 export default function App({ state, actions, record }) {
   let { car, pipings, game, player } = state
@@ -16,24 +18,14 @@ export default function App({ state, actions, record }) {
     land: true,
     sliding: isPlaying,
   })
+  const [reloadScores, updateReloadScores] = useState(true)
+
+
+
   return (
 
     <div>
-      <div className="highScores text-light text-center">
-        <h6>HIGH SCORES</h6>
-        <ul className="list-group">
-          <li className="list-group-item">ass</li>
-          <li className="list-group-item">hey</li>
-          <li className="list-group-item">vpd</li>
-          <li className="list-group-item">vpd</li>
-          <li className="list-group-item">vpd</li>
-          <li className="list-group-item">vpd</li>
-          <li className="list-group-item">vpd</li>
-          <li className="list-group-item">vpd</li>
-          <li className="list-group-item">vpd</li>
-          <li className="list-group-item">vpd</li>
-        </ul>
-      </div>
+      <Scores reloadScores={reloadScores} updateReloadScores={updateReloadScores} />
       <div className="game">
         <div className="scene" onMouseDown={onFlyUp} onTouchStart={onFlyUp}>
           {
@@ -45,7 +37,7 @@ export default function App({ state, actions, record }) {
           <Car {...car} isFlying={isPlaying} />
           <div className={landClasses} />
           {game.status === 'over' &&
-            <Menu  score={player.score} onPlay={START_PLAY} onReplay={onReplay} onReverse={record.reverse} />
+            <Menu updateReloadScores={updateReloadScores} score={player.score} onPlay={START_PLAY} onReplay={onReplay} onReverse={record.reverse} />
           }
         </div>
       </div>
