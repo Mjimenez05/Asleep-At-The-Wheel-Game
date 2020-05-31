@@ -55,7 +55,7 @@ export default class Menu extends Component {
 
 		return (
 			<div className="menu c-wrap">
-				{/* <ReactHowler src={Music} playing={true} /> */}
+				<ReactHowler src={Music} playing={true} loop={true}/>
 				<ul className="c-inner">
 					<li>score: {score}</li>
 					{onReplay &&

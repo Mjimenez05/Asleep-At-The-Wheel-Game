@@ -5,6 +5,7 @@ import Piping from './components/Piping'
 import Menu from './components/Menu'
 import Scores from "./components/Scores"
 import Instructions from "./components/Instructions"
+import Play from './components/Play'
 
 export default function App({ state, actions, record }) {
   let { car, pipings, game, player } = state
@@ -25,6 +26,7 @@ export default function App({ state, actions, record }) {
   return (
 
     <div>
+      <Play />
       <Instructions />
       <Scores reloadScores={reloadScores} updateReloadScores={updateReloadScores} />
       <div className="game">
