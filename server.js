@@ -10,7 +10,7 @@ const SaveScore = require('./models')
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose.connect(process.env.PORT ? "mongodb://user:password123@ds149874.mlab.com:49874/heroku_98nsf817" : "mongodb://localhost/asleep-at-the-wheel", { useNewUrlParser: true })
+mongoose.connect(process.env.PORT ? "mongodb://user1:password1@ds035014.mlab.com:35014/heroku_xf4r7k5w" : "mongodb://localhost/asleep-at-the-wheel", { useNewUrlParser: true })
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
