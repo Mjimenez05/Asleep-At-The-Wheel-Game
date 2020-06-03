@@ -1,19 +1,33 @@
-import React from 'react'
+import React, { setState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPauseCircle } from '@fortawesome/free-solid-svg-icons'
+import ReactHowler from 'react-howler'
+import Music from '../audio/audio.mp3'
 
-var play = true
 
-// playPause = () => {
-  
-// }
+export default function Play(isPlayingMusic) {
 
-export default function Play() {
+    var isPlaying = false
+    console.log(isPlaying);
+    
+
+    // playPause = () => {
+    //     if (isPlaying === false){
+    //         isPlaying = true
+    //     }
+    //     else{
+    //         isPlaying = false
+    //     }
+    // }
+
     return (
-        <div classname="play">
-            <FontAwesomeIcon
-                className="text-light"
-                icon={faPlay} />
+        <div>
+            <ReactHowler src={Music} playing={isPlaying} loop={true} />
+            <div className="play-pause"  >
+                <FontAwesomeIcon className="text-light" icon={faPlayCircle} /> 
+                
+            </div>
         </div>
     )
 }

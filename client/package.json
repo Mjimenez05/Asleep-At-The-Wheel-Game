@@ -16,6 +16,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-howler": "^3.7.4",
+    "react-player-controls": "^1.1.0",
     "react-scripts": "^2.1.1",
     "relite": "^1.0.0"
   },
