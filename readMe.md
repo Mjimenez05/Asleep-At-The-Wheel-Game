@@ -1,4 +1,20 @@
-# Create React Express App
+# Asleep at the Wheel 
+
+## The Game
+
+In a nutshell, Doc fell asleep at the wheel of the Delorian. Its your job to keep him in the sky avoiding the plasma beams of time travel. When you inevitably crash, save your high score with your three initials or three letters of your choice. Good luck and steady flying.
+
+## Technologies Used
+
+1. React app
+2. Bootstrap
+3. Mongodb
+4. React-howler
+5. Express
+6. Mongoose
+7. Axios
+8. Node
+9. Heroku
 
 ## About This Boilerplate
 
@@ -27,3 +43,13 @@ Your app should now be running on <http://localhost:3000>. The Express server sh
 ## Deployment (Heroku)
 
 To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+
+## Version 2.0
+
+1. add more sprite/character models.
+2. user log in with character and top score saving
+3. upgrades for boost
+4. different maps/levels
+5. custom sound track with the use of a spotify api log in 
+6. upgrade UI system 
+7. clean up flight systems
