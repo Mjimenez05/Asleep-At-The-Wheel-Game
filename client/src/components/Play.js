@@ -8,26 +8,19 @@ import Music from '../audio/audio.mp3'
 
 export default function Play(isPlayingMusic) {
 
-    var isPlaying = false
-    console.log(isPlaying);
+    var isPlaying = true
+    
     
 
-    // playPause = () => {
-    //     if (isPlaying === false){
-    //         isPlaying = true
-    //     }
-    //     else{
-    //         isPlaying = false
-    //     }
-    // }
+ 
 
     return (
         <div>
             <ReactHowler src={Music} playing={isPlaying} loop={true} />
-            <div className="play-pause"  >
+            <a className="play-pause" >
                 <FontAwesomeIcon className="text-light" icon={faPlayCircle} /> 
                 
-            </div>
+            </a>
         </div>
     )
 }
